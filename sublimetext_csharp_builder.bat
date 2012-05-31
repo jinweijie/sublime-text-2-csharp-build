@@ -32,7 +32,11 @@
 
 @XCOPY /Y /Q %LIB_DIR%\*.* %OUTPUT_DIR%\
 
-@FOR %%x in (%LIB_DIR%\*.dll) DO @CALL :concat /reference:%%x
+@CD %LIB_DIR%
+
+@FOR %%x in (*.dll) DO @CALL :concat /reference:%%x
+
+@CD ..
 
 @SET TMP_CMD=%TMP_CMD% %TMP_REF%
 

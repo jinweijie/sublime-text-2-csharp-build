@@ -1,4 +1,10 @@
-:: Parameters from Sublime Text
+:: Assumptions:
+:: - Sublime Text has set the working directory and both the source and executable files
+::   are in that directory
+:: - The script is capable of handling simple C# apps that reference 3rd-party
+::   libraries
+
+:: Inputs from Sublime Text
 :: %1 - The full path and filename of the source file to build
 :: %2 - The project directory
 :: %3 - The name of the executable file name
@@ -24,13 +30,9 @@
 
 @IF NOT EXIST %LIB_DIR% GOTO :NOLIBDIR
 
-@CD %LIB_DIR%
+@XCOPY /Y /Q %LIB_DIR%\*.* %OUTPUT_DIR%\
 
-@FOR %%x in (*.dll) DO @CALL :concat /reference:%%x
-
-@FOR %%x in (*.dll) DO @XCOPY /Y /Q %%x ..\%OUTPUT_DIR%\
-
-@CD ".."
+@FOR %%x in (%LIB_DIR%\*.dll) DO @CALL :concat /reference:%%x
 
 @SET TMP_CMD=%TMP_CMD% %TMP_REF%
 

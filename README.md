@@ -15,3 +15,7 @@ If there's no Visual Studio installed on your machine, extra steps are needed to
 1. Create a project in Sublime Text 2.
 2. Copy files under `sample_app` folder to the project folder.
 3. Hit `Ctrl + B` to see the result.
+
+# Customization
+
+The default reference search path is `Lib` and the default output path is `Output`. You can modify the `CSharpBuild.sublime-build` file to change them.

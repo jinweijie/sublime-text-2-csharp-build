@@ -12,9 +12,8 @@ If there's no Visual Studio installed on your machine, extra steps are needed to
 
 # Usage
 
-1. Create a project in Sublime Text 2.
-2. Copy files under `sample_app` folder to the project folder.
-3. Hit `Ctrl + B` to see the result.
+1. Open Main.cs file  in `sample_app` folder with Sublime Text 2.
+2. Hit `Ctrl + B` to see the result.
 
 # Customization
 

@@ -50,6 +50,8 @@
 
 @IF errorlevel 1 GOTO end
 
+@IF NOT EXIST %PRJ_DIR% SET PRJ_DIR=.
+
 :: Execute compiled binary if build was successful.
 @ECHO.
 @ECHO Executing %PRJ_DIR%\%OUTPUT_DIR%\%EXE_NAME%:

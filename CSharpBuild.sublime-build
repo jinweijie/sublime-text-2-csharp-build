@@ -1,6 +1,5 @@
 {
-   "cmd": ["$packages\\User\\sublimetext_csharp_builder.bat", "*.cs", "$project_path", "${file_name/\\.cs/\\.exe/}", "true", "Lib", "Output"],
-   "working_dir": "${project_path:${folder:${file_path}}}",
+   "cmd": ["$packages\\User\\sublimetext_csharp_builder.bat", "*.cs", ".", "${file_name/\\.cs/\\.exe/}", "true", "Lib", "Output"],
    "file_regex": "^(...*?)[(]([0-9]*),([0-9]*)[)]",
    "selector": "source.cs"
 }

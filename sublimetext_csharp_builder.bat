@@ -6,13 +6,13 @@
 
 :: Inputs from Sublime Text
 :: %1 - The full path and filename of the source file to build
-:: %2 - The project directory
+:: %2 - The working directory
 :: %3 - The name of the executable file name
 :: %4 - Compile all the cs files, true or false
 :: %5 - The lib directory
 :: %6 - Output directory
 @SET SRC_FILE=%1
-@SET PRJ_DIR=%2
+@SET WORKING_DIR=%2
 @SET EXE_NAME=%3
 @SET RECURSE=%4
 @SET LIB_DIR=%5
@@ -50,13 +50,11 @@
 
 @IF errorlevel 1 GOTO end
 
-@IF NOT EXIST %PRJ_DIR% SET PRJ_DIR=.
-
 :: Execute compiled binary if build was successful.
 @ECHO.
-@ECHO Executing %PRJ_DIR%\%OUTPUT_DIR%\%EXE_NAME%:
+@ECHO Executing %WORKING_DIR%\%OUTPUT_DIR%\%EXE_NAME%:
 @ECHO.
-@%PRJ_DIR%\%OUTPUT_DIR%\%EXE_NAME%
+@%WORKING_DIR%\%OUTPUT_DIR%\%EXE_NAME%
 :end
 
 :concat

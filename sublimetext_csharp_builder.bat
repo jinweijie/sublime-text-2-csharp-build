@@ -26,9 +26,11 @@
 
 @DEL /Q %OUTPUT_DIR%\*.*
 
-@SET TMP_CMD=csc /out:%OUTPUT_DIR%\%EXE_NAME% /recurse:%SRC_FILE% /nologo /debug:full /platform:x86 /lib:Lib
+@SET TMP_CMD=csc /out:%OUTPUT_DIR%\%EXE_NAME% /recurse:%SRC_FILE% /nologo /debug:full /platform:x86
 
 @IF NOT EXIST %LIB_DIR% GOTO :NOLIBDIR
+
+@SET TMP_CMD=%TMP_CMD% /lib:%LIB_DIR%
 
 @XCOPY /Y /Q %LIB_DIR%\*.* %OUTPUT_DIR%\
 
